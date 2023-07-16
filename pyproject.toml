@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "bsky-who-to-follow"
+version = "0.1.0"
+description = ""
+authors = ["ymdpharm <ymdpharm@gmail.com>"]
+readme = "README.md"
+packages = [{include = "bsky_who_to_follow"}]
+
+[tool.poetry.dependencies]
+python = "3.10.2"
+ipykernel = "^6.24.0"
+atproto = "^0.0.17"
+pandas = "^2.0.3"
+scipy = "^1.11.1"
+black = "^23.7.0"
+isort = "^5.12.0"
+typer = "^0.9.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

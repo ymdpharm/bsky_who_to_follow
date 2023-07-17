@@ -1,7 +1,8 @@
 import numpy as np
 import pandas as pd
+import typer
 from atproto import Client
-from typer import Option, Typer
+from typer import Typer
 
 app = Typer()
 client = Client()
@@ -95,15 +96,11 @@ def list_recommend(handle: str, top: int):
 
 
 @app.command()
-def exec(
-    handle: str = Option(..., "-h", "--handle", help="your handle."),
-    password: str = Option(
-        ..., "-p", "--password", help="your password. (It should not be required..)"
-    ),
-    top: int = Option(
-        ..., "-t", "--top", help="number limit of recommendation result."
-    ),
-):
+def exec():
+    handle = typer.prompt("What's your handle?")
+    password = typer.prompt("What's your password?", hide_input=True)
+    top = typer.prompt("Top N?", default=50)
+
     client.login(handle, password)
     print(list_recommend(handle, top))
 

@@ -75,7 +75,7 @@ def similarity(graph: dict[str, list[str]]):
     return df
 
 
-def exec(handle: str, top: int):
+def list_recommend(handle: str, top: int):
     my_follows = get_follows(handle)
     graph = follows_follow_graph(my_follows)
     mat = follows_follow_matrix(graph)
@@ -95,7 +95,7 @@ def exec(handle: str, top: int):
 
 
 @app.command()
-def list_recommend(
+def exec(
     handle: str = Option(..., "-h", "--handle", help="your handle."),
     password: str = Option(
         ..., "-p", "--password", help="your password. (It should not be required..)"
@@ -105,7 +105,7 @@ def list_recommend(
     ),
 ):
     client.login(handle, password)
-    print(exec(handle, top))
+    print(list_recommend(handle, top))
 
 
 if __name__ == "__main__":

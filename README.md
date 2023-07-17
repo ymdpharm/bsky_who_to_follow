@@ -7,5 +7,8 @@ Simple user recommendation script for Bluesky.
 4. Filter out candidates
 
 ```
-❯ poetry run python main.py -h yourhandle.bsky.social -p yourpass -t 50
+❯ poetry run python main.py
+What's your handle?: ymdpharm.bsky.social
+What's your password?:
+Top N? [50]: 30
 ```
